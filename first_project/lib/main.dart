@@ -10,9 +10,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text(
-            "0",
-            style: Theme.of(context).textTheme.display1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "You've pushed this button these many times:",
+              ),
+              Text(
+                "0",
+                style: Theme.of(context).textTheme.display1,
+              ),
+            ],
           ),
         ),
       ),
