@@ -10,9 +10,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Demo",
       theme: ThemeData(
-        primaryColor: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            print("FAB pressed");
+          },
+        ),
         appBar: AppBar(
           title: Text("Flutter Demo Home Page"),
         ),
