@@ -20,19 +20,24 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyHomePageState();
+    return _MyHomePageState();
   }
 }
 
-class MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    _counter++;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {
-          print("FAB pressed");
-        },
+        tooltip: "Increment",
+        onPressed: _incrementCounter,
       ),
       appBar: AppBar(
         title: Text("Flutter Demo Home Page"),
@@ -45,7 +50,7 @@ class MyHomePageState extends State<MyHomePage> {
               "You've pushed this button these many times:",
             ),
             Text(
-              "0",
+              "$_counter",
               style: Theme.of(context).textTheme.display1,
             ),
           ],
