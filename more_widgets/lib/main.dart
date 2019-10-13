@@ -12,7 +12,26 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("My Home Page"),
         ),
-        body: Container(),
+        body: Center(
+          child: Container(
+            padding: EdgeInsets.all(12),
+            margin: EdgeInsets.all(24),
+            alignment: Alignment.center,
+            constraints: BoxConstraints.expand(height: 300),
+            decoration: BoxDecoration(
+              color: Colors.redAccent,
+              border: Border.all(width: 4, color: Colors.blue),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Container(
+              color: Colors.yellow,
+              child: Text(
+                "This is a text widget. This widget is inside a Container widget.",
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
