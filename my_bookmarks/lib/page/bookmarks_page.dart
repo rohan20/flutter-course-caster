@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_bookmarks/model/bookmark.dart';
 import 'package:my_bookmarks/page/add_bookmark_page.dart';
+import 'package:my_bookmarks/util/navigation_util.dart';
 import 'package:my_bookmarks/widget/bookmarks_list_widget.dart';
 
 class BookmarksPage extends StatelessWidget {
@@ -19,11 +20,7 @@ class BookmarksPage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.add),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => AddBookmarkPage()),
-          );
-        },
+        onPressed: () => navigateToAddBookmarkPage(context),
         label: Text("Add"),
       ),
     );
