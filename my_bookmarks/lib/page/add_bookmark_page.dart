@@ -17,12 +17,24 @@ class _AddBookmarkPageState extends State<AddBookmarkPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Add a new bookmark")),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.check),
-        backgroundColor: Colors.green,
-        onPressed: () {
-          print("Title: ${_titleTextController.text}");
-          print("Link: ${_linkTextController.text}");
+      floatingActionButton: Builder(
+        builder: (BuildContext context) {
+          return FloatingActionButton(
+            child: Icon(Icons.check),
+            backgroundColor: Colors.green,
+            onPressed: () {
+              String title = _titleTextController.text;
+              String link = _linkTextController.text;
+
+              Scaffold.of(context).hideCurrentSnackBar();
+              if (isInputValid(title, link)) {
+                print("Title: ${_titleTextController.text}");
+                print("Link: ${_linkTextController.text}");
+              } else {
+                showInputError(context, title, link);
+              }
+            },
+          );
         },
       ),
       body: Padding(
@@ -64,5 +76,21 @@ class _AddBookmarkPageState extends State<AddBookmarkPage> {
     _linkTextController.dispose();
     _linkFocusNode.dispose();
     super.dispose();
+  }
+
+  bool isInputValid(String title, String link) {
+    return title.isNotEmpty && link.isNotEmpty;
+  }
+
+  void showInputError(BuildContext context, String title, String link) {
+    if (title.isEmpty) {
+      showSnackBar(context, "Title is empty");
+    } else if (link.isEmpty) {
+      showSnackBar(context, "Link is empty");
+    }
+  }
+
+  void showSnackBar(BuildContext context, String message) {
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text(message)));
   }
 }
