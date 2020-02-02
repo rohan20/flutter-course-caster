@@ -9,10 +9,7 @@ class BookmarksPage extends StatefulWidget {
 }
 
 class _BookmarksPageState extends State<BookmarksPage> {
-  List<Bookmark> bookmarksList = [
-    Bookmark("Flutter", "https://flutter.dev"),
-    Bookmark("Google", "https://google.com")
-  ];
+  List<Bookmark> bookmarksList = [];
 
   @override
   Widget build(BuildContext context) {
