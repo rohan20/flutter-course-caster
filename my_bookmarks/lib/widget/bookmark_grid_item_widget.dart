@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_bookmarks/model/bookmark.dart';
-import 'package:my_bookmarks/page/add_bookmark_page.dart';
-import 'package:my_bookmarks/page/view_bookmark_page.dart';
 import 'package:my_bookmarks/util/navigation_util.dart';
 
 class BookmarkGridItemWidget extends StatelessWidget {
-  Bookmark bookmark;
+  final Bookmark bookmark;
 
   BookmarkGridItemWidget(this.bookmark);
 

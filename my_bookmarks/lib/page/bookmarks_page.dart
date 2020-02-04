@@ -10,6 +10,7 @@ class BookmarksPage extends StatefulWidget {
 }
 
 class _BookmarksPageState extends State<BookmarksPage> {
+  bool isGridMode = false;
   List<Bookmark> bookmarksList = [];
 
   @override
@@ -17,8 +18,22 @@ class _BookmarksPageState extends State<BookmarksPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("My Bookmarks"),
+        actions: <Widget>[
+          IconButton(
+            icon: isGridMode
+                ? Icon(Icons.list, color: Colors.white)
+                : Icon(Icons.grid_on, color: Colors.white),
+            onPressed: () {
+              setState(() {
+                isGridMode = !isGridMode;
+              });
+            },
+          )
+        ],
       ),
-      body: BookmarksGridWidget(bookmarksList),
+      body: isGridMode
+          ? BookmarksGridWidget(bookmarksList)
+          : BookmarksListWidget(bookmarksList),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.add),
