@@ -1,6 +1,8 @@
 # Free Flutter course for beginners
 
-**Link to the course:** https://caster.io/courses/flutter-from-zero-to-hero
+**Link to the course:** https://www.youtube.com/playlist?list=PLI-zgtmWlWvXEaogxCUejByJxwv5Vl-X3
+<br>
+Deprecated link: https://caster.io/courses/flutter-from-zero-to-hero
 <br>
 <br>**Number of lessons:** 50
 <br>**Tolal duration:** 4 hours and 4 minutes
